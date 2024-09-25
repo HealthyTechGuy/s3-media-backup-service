@@ -1,0 +1,9 @@
+# Ignore config files
+config.json
+
+# Other ignores
+*.log
+*.tmp
+
+# dependencies
+/node_modules

@@ -1,0 +1,26 @@
+/* StorageTypeSelector.css */
+.storage-type-selector {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.storage-type-selector select {
+    width: 200px; /* Adjust width */
+    padding: 10px; /* Space inside */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #f9f9f9; /* Background color */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+.storage-type-selector select:hover {
+    border-color: #888; /* Border color on hover */
+}
+
+.storage-type-selector select:focus {
+    outline: none; /* Remove outline */
+    border-color: #007bff; /* Change border color when focused */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Box shadow */
+}

@@ -45,7 +45,7 @@ func (s *S3Service) GeneratePreSignedURL(fileName string) (string, error) {
 	return urlStr, nil
 }
 
-func (s *S3Service) UploadFile(fileName string, fileBody io.Reader, contentType string) error {
+func (s *S3Service) UploadFile(fileName string, folderName string, fileBody io.Reader, contentType string) error {
 	log.Printf("Uploading file %s to S3 bucket %s", fileName, s.bucket)
 
 	// Use a buffer to read the file content
@@ -59,7 +59,7 @@ func (s *S3Service) UploadFile(fileName string, fileBody io.Reader, contentType 
 	// Upload the buffered content to S3
 	_, err = s.s3Client.PutObject(&s3.PutObjectInput{
 		Bucket:      aws.String(s.bucket),
-		Key:         aws.String(fileName),
+		Key:         aws.String(folderName + fileName),
 		Body:        bytes.NewReader(buf.Bytes()), // Create a new reader from the buffer
 		ContentType: aws.String(contentType),
 	})

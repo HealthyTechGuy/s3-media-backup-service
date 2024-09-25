@@ -1,21 +1,21 @@
 import React from 'react';
+import './StorageTypeSelector.css';
 
 const StorageTypeSelector = ({ selectedStorage, onStorageChange }) => {
-    const storageOptions = ['Standard', 'Glacier', 'Glacier Deep Archive'];
-
     return (
         <div className="storage-type-selector">
-            <label htmlFor="storage-type">Choose S3 Storage Type:</label>
-            <select
-                id="storage-type"
+            <label htmlFor="storageType">Choose S3 Storage Type: </label>
+            <select 
+                id="storageType"
                 value={selectedStorage}
                 onChange={(e) => onStorageChange(e.target.value)}
             >
-                {storageOptions.map(option => (
-                    <option key={option} value={option}>
-                        {option}
-                    </option>
-                ))}
+                <option value="Standard">Standard</option>
+                <option value="Intelligent-Tiering">Intelligent-Tiering</option>
+                <option value="Standard-IA">Standard-IA</option>
+                <option value="OneZone-IA">OneZone-IA</option>
+                <option value="Glacier">Glacier</option>
+                <option value="Glacier-Deep-Archive">Glacier Deep Archive</option>
             </select>
         </div>
     );

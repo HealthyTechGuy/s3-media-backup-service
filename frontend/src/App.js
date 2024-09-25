@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import DropZone from './components/DropZone'; // Import the DropZone component
@@ -58,7 +57,6 @@ function App() {
         })
         .then(response => {
             setUploadStatus('Upload successful!');
-            console.log('Upload successful, response:', response.data);
         })
         .catch(error => {
             setUploadStatus('Upload failed.');

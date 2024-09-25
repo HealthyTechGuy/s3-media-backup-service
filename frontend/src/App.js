@@ -8,6 +8,7 @@ import './App.css';
 function App() {
     const [files, setFiles] = useState([]); // Initialize files as an array
     const [storageType, setStorageType] = useState('Standard');
+    const [folderName, setFolderName] = useState('');
     const [uploadProgress, setUploadProgress] = useState(0);
     const [uploadStatus, setUploadStatus] = useState('');
 
@@ -42,6 +43,8 @@ function App() {
             }
         });
         formData.append('storageType', storageType);
+        // TODO - make folder name an input field from the frontend.
+        formData.append('folderName', "test123/");
         console.log('Storage type added to form data:', storageType);
 
         axios.post('http://localhost:4000/upload', formData, {

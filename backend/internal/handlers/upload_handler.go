@@ -38,6 +38,10 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 	uploadRequest.StorageType = r.FormValue("storageType")
 	log.Printf("Storage Type: %s", uploadRequest.StorageType)
 
+	// Get folder name
+	uploadRequest.FolderName = r.FormValue("folderName")
+	log.Printf("Folder Name: %s", uploadRequest.FolderName)
+
 	// Get the file from the request
 	files := r.MultipartForm.File["files"]
 	s3Service := services.NewS3Service(cfg.Region, cfg.Bucket) // Change to your bucket name
@@ -54,7 +58,7 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 		defer file.Close()
 
 		// Upload the file to S3 using the new UploadFile method
-		err = s3Service.UploadFile(fileHeader.Filename, file, fileHeader.Header.Get("Content-Type"))
+		err = s3Service.UploadFile(fileHeader.Filename, uploadRequest.FolderName, file, fileHeader.Header.Get("Content-Type"))
 		if err != nil {
 			http.Error(w, "Failed to upload file to S3", http.StatusInternalServerError)
 			return

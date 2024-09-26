@@ -58,7 +58,7 @@ func (h *UploadHandler) HandleUpload(w http.ResponseWriter, r *http.Request) {
 		defer file.Close()
 
 		// Upload the file to S3 using the new UploadFile method
-		err = s3Service.UploadFile(fileHeader.Filename, uploadRequest.FolderName, file, fileHeader.Header.Get("Content-Type"))
+		err = s3Service.UploadFile(fileHeader.Filename, uploadRequest.FolderName, uploadRequest.StorageType, file, fileHeader.Header.Get("Content-Type"))
 		if err != nil {
 			http.Error(w, "Failed to upload file to S3", http.StatusInternalServerError)
 			return

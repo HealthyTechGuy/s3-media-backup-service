@@ -45,8 +45,22 @@ func (s *S3Service) GeneratePreSignedURL(fileName string) (string, error) {
 	return urlStr, nil
 }
 
-func (s *S3Service) UploadFile(fileName string, folderName string, fileBody io.Reader, contentType string) error {
-	log.Printf("Uploading file %s to S3 bucket %s", fileName, s.bucket)
+func (s *S3Service) UploadFile(fileName string, folderName string, storageType string, fileBody io.Reader, contentType string) error {
+	log.Printf("Uploading file %s to S3 bucket %s with storage class %s", fileName, s.bucket, storageType)
+
+	// Validate storage type (optional)
+	validStorageTypes := map[string]bool{
+		"STANDARD":            true,
+		"STANDARD_IA":         true,
+		"ONEZONE_IA":          true,
+		"GLACIER":             true,
+		"DEEP_ARCHIVE":        true,
+		"INTELLIGENT_TIERING": true,
+	}
+	if _, valid := validStorageTypes[storageType]; !valid {
+		log.Printf("Invalid storage class: %s. Defaulting to STANDARD.", storageType)
+		storageType = "STANDARD"
+	}
 
 	// Use a buffer to read the file content
 	buf := new(bytes.Buffer)
@@ -58,10 +72,11 @@ func (s *S3Service) UploadFile(fileName string, folderName string, fileBody io.R
 
 	// Upload the buffered content to S3
 	_, err = s.s3Client.PutObject(&s3.PutObjectInput{
-		Bucket:      aws.String(s.bucket),
-		Key:         aws.String(folderName + fileName),
-		Body:        bytes.NewReader(buf.Bytes()), // Create a new reader from the buffer
-		ContentType: aws.String(contentType),
+		Bucket:       aws.String(s.bucket),
+		Key:          aws.String(folderName + fileName),
+		Body:         bytes.NewReader(buf.Bytes()),
+		ContentType:  aws.String(contentType),
+		StorageClass: aws.String(storageType), // Set the storage class here
 	})
 
 	if err != nil {
@@ -69,6 +84,6 @@ func (s *S3Service) UploadFile(fileName string, folderName string, fileBody io.R
 		return fmt.Errorf("failed to upload file: %w", err)
 	}
 
-	log.Printf("Successfully uploaded %s to S3", fileName)
+	log.Printf("Successfully uploaded %s to S3 with storage class %s", fileName, storageType)
 	return nil
 }

@@ -6,8 +6,8 @@ I recently received a large collection of my family photos and videos that I've 
 This a local web application that allows users to upload files and folders from their local machine to an Amazon S3 bucket. The application provides an easy-to-use interface for selecting files and choosing S3 storage types (e.g., Standard, Glacier Deep Archive). The backend is built in Go, handling secure uploads and generating pre-signed URLs for efficient file transfers.
 
 ## The UI
-![image](https://github.com/user-attachments/assets/de910daa-79fc-483b-a34b-f3cf48532d98)
 
+![image](https://github.com/user-attachments/assets/de910daa-79fc-483b-a34b-f3cf48532d98)
 
 ## Table of Contents
 
@@ -17,8 +17,6 @@ This a local web application that allows users to upload files and folders from 
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
 - [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
-- [License](#license)
 
 ## Features
 

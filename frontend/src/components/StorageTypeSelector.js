@@ -10,12 +10,12 @@ const StorageTypeSelector = ({ selectedStorage, onStorageChange }) => {
                 value={selectedStorage}
                 onChange={(e) => onStorageChange(e.target.value)}
             >
-                <option value="Standard">Standard</option>
-                <option value="Intelligent-Tiering">Intelligent-Tiering</option>
-                <option value="Standard-IA">Standard-IA</option>
-                <option value="OneZone-IA">OneZone-IA</option>
-                <option value="Glacier">Glacier</option>
-                <option value="Glacier-Deep-Archive">Glacier Deep Archive</option>
+                <option value="STANDARD">Standard</option>
+                <option value="INTELLIGENT_TIERING">Intelligent-Tiering</option>
+                <option value="STANDARD_IA">Standard-IA</option>
+                <option value="ONEZONE_IA">OneZone-IA</option>
+                <option value="GLACIER">Glacier</option>
+                <option value="DEEP_ARCHIVE">Glacier Deep Archive</option>
             </select>
         </div>
     );

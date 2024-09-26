@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
     const [files, setFiles] = useState([]);
-    const [storageType, setStorageType] = useState('Glacier-Deep-Archive');
+    const [storageType, setStorageType] = useState('DEEP_ARCHIVE');
     const [folderName, setFolderName] = useState('');
     const [folderNameError, setFolderNameError] = useState(''); 
     const [uploadProgress, setUploadProgress] = useState(0);

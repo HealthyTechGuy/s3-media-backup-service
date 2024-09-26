@@ -17,8 +17,6 @@ This a local web application that allows users to upload files and folders from 
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
 - [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
-- [License](#license)
 
 ## Features
 
@@ -42,3 +40,7 @@ This a local web application that allows users to upload files and folders from 
 - Go (1.22 or later)
 - Node.js (for the React frontend)
 - AWS Account (with an S3 bucket created)
+
+### Running The Application
+Use `make` in the root directory to build both the front and backend. Navigate to port :3000 and you should see the application running. You will need to ensure that you have your AWS secret key saved as an enviroment variable on your local machine in order for the requests to your AWS S3 bucket to work. 
+

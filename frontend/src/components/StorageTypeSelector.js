@@ -4,7 +4,7 @@ import './StorageTypeSelector.css';
 const StorageTypeSelector = ({ selectedStorage, onStorageChange }) => {
     return (
         <div className="storage-type-selector">
-            <label htmlFor="storageType">Choose S3 Storage Type: </label>
+            <h4 htmlFor="storageType">S3 Storage Type`</h4>
             <select 
                 id="storageType"
                 value={selectedStorage}

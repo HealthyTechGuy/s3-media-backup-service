@@ -1,8 +1,6 @@
-/* StorageTypeSelector.css */
 .storage-type-selector {
     position: relative;
     display: inline-block;
-    margin: 20px 0;
 }
 
 .storage-type-selector select {

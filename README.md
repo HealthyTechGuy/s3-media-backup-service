@@ -1,6 +1,7 @@
 # S3 Media Backup Service
 
-![image](https://github.com/user-attachments/assets/7e75df17-a5cb-4a81-a0ee-ea353a6a9760)
+![image](https://github.com/user-attachments/assets/1302100d-c011-45a0-abc4-334995bed68a)
+
 
 **S3 Media Backup Service**  
 I recently received a large collection of my family photos and videos that I've converted from VHS to digital. This resulted in many gigabytes of invaluable media just sitting on my laptop. I wanted a safe, cost-effective backup solution. At the time of writing this, S3's Glacier Deep Archive costs approximately $0.00099 per GB per month. This pricing makes it one of the most economical storage options in the cloud, and if set up correctly, I should be the only one with access to it, meaning no third party is ever involved. This is ideal from both a privacy and cost perspective.
